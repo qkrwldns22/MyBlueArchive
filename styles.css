@@ -1,0 +1,748 @@
+head {
+    display: none;
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    font-size: 0.75em;
+    font-family: 'NEXON Lv2 Gothic', sans-serif;
+    background-color: #191b1d;
+    overflow-x: hidden; /* 전체 페이지 가로 스크롤 방지 */
+}
+
+a {
+    color: #222;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+#gnb {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 199;
+    background-color: #191b1d;
+}
+
+.header_main_logo {
+    position: absolute;
+    left: 70px;
+    top: 12px;
+    z-index: 1999;
+    transition: all 0.15s;
+}
+
+.header_blog_icon {
+    position: absolute;
+    right: 175px;
+    top: 22px;
+    z-index: 199;
+}
+
+.header_blog_icon a {
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.header_language_select {
+    display: inline-block;
+    z-index: 1999;
+    border-radius: 30px;
+    padding: 8px 12px;
+    position: absolute;
+    right: 65px;
+    top: 20px;
+    background: #303234;
+}
+
+.header_language_select a.current {
+    opacity: 1 !important;
+}
+
+.header_language_select a {
+    font-size: 11px;
+    color: #fff;
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+    transition: all 0.15s;
+}
+
+.header_language_select a::after {
+    content: "";
+    width: 1px;
+    height: 10px;
+    background: #fff;
+    opacity: 0.3;
+    position: absolute;
+    right: -10px;
+    top: 0;
+}
+
+.header_language_select a:last-child {
+    margin-right: 0;
+}
+
+.header_language_select a:last-child::after {
+    content: none; /* 마지막 항목에서만 가상 요소 제거 */
+}
+
+#gnb .gnb_wrapper{
+    max-width: 1280px;
+    margin: 0 auto;
+    position: relative;
+    height: 70px;
+    transition: all 0.35s;
+}
+
+#gnb .custom_menu{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#gnb ul{
+    list-style: none;
+    position: relative;
+    display: inline-table;
+}
+
+/* 주 메뉴 */
+#gnb .custom_menu > li {
+    line-height: 60px;
+    display: inline-block;
+    transition: all 0.15s;
+    padding-right: 5px;
+    margin: 0 32px; /* 메뉴 간 간격 */
+}
+
+#gnb.v4 .custom_menu li a {
+    color: #fff;
+}
+
+#gnb .custom_menu li a {
+    font-size: 21px;
+    display: block;
+    padding: 0;
+    text-decoration: none;
+    font-family: 'NEXON Lv2 Gothic Bold';
+    position: relative;
+}
+
+#gnb .custom_menu::after{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+/* 드롭다운 기본 상태 */
+#gnb .fulldown_bg {
+    position: absolute;
+    width: 100vw;
+    height: 0; /* 기본 높이 0 */
+    overflow: hidden; /* 내부 내용 숨김 */
+    background: #f8f8f8;
+    top: 70px;
+    z-index: 10;
+    border-bottom: 1px solid #eee;
+    opacity: 0; /* 보이지 않도록 */
+    transition: height 0.5s ease, opacity 0.3s ease; /* 높이와 투명도 애니메이션 */
+}
+
+.fulldown_bg .ninner{
+    max-width: 630px;
+    margin: 0 auto;
+    padding-top: 10px;
+    white-space: nowrap;
+}
+
+.ninner ul li a {
+    font-size: 15px;
+    color: #666;
+    display: inline-block;
+    line-height: 35px;
+    margin: 0 22px 0 0;
+}
+
+.ninner ul li:last-child a {
+    border-bottom: none;
+}
+
+#gnb ul::after{
+    display: block;
+    visibility: hidden;
+    clear: both;
+    content: "";
+}
+
+/* 드롭다운 활성화 */
+#gnb .gnb_wrapper:hover ~ .fulldown_bg {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* 드롭다운 활성화 상태 */
+#gnb .fulldown_bg.active {
+    height: 250px; /* 원하는 드롭다운 높이 */
+    opacity: 1; /* 보이도록 */
+}
+
+/*여기부테 메인배너*/
+.subpage_content_frame {
+    padding: 100px 0; /* 패딩 값을 약간 줄여서 이미지가 오버되지 않도록 */
+    width: 100%;
+    max-width: 1340px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.v4_title_banner {
+    background: url(img/blue_archive.jpg) no-repeat center;
+    background-size: cover;
+    padding: 100px 35px;
+    overflow: hidden;
+}
+
+.inner_container {
+    width: 100%;
+    padding: 0 20px;
+    max-width: 1340px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.inner_container h2 {
+    font-size: 75px;
+    color: #fff;
+    font-family: 'NEXON Lv2 Gothic Bold';
+    margin-bottom: 10px; /* 추가: h2와 h6 사이의 간격 조정 */
+}
+
+.inner_container h6 {
+    font-size: 20px;
+    color: #fff;
+    margin: -15px 0 10.8375vw;
+    font-weight: normal;
+}
+
+.inner_container p {
+    font-size: 0;
+    color: #fff;
+    opacity: 0.4;
+    font-family: 'NEXON Lv2 Gothic Bold';
+}
+
+.inner_container span {
+    font-size: 20px;
+}
+
+.inner_container span:nth-child(1) {
+    padding-right: 30px;
+    display: inline-block;
+}
+
+.inner_container span:nth-child(2) {
+    padding-left: 30px;
+    border-left: 1px solid #fff;
+    display: inline-block;
+}
+
+.v4_text{
+    margin: 6vw 0;
+}
+
+.v4_first_text .v4_text_background {
+    text-align: right;
+    padding: 50px;
+}
+
+.first_text_wrap {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translate(0, -50%);
+}
+
+.first_text_wrap h3 {
+    font-size: 3.5vw;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.inner_container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.v4_second_text {
+    padding: 70px;
+    margin-bottom: 12vw;
+}
+
+.v4_spec {
+    position: absolute;
+    top: 50%;
+    right: 3%;
+    transform: translate(0, -50%);
+}
+
+.v4_spec li {
+    font-size: 30px;
+    padding-left: 10px;
+    color: #fff;
+    line-height: 1.5;
+}
+
+.v4_spec li::after {
+    width: 15px;
+    height: 15px;
+}
+
+.v4_spec i {
+    margin-right: 10px; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+/*캐릭터 슬라이더*/
+.v4_slider_frame{
+    margin-bottom: 4vw;
+    position: relative;
+    margin-right: 60px;
+}
+
+.v4swiper {
+    max-width: 1390px;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* 화면 중앙으로 배치 */
+}
+
+.swiper-wrapper {
+    display: flex;
+    justify-content: center; /* 중앙에 배치 */
+    align-items: center; /* 세로 중앙 정렬 (필요한 경우) */
+    width: 100%;
+}
+
+.v4_slide {
+    padding-bottom: 30px;
+    width: 10%;
+    cursor: pointer;
+    position: relative; /* 부모 요소에서 position 설정 */
+}
+
+.circle_background {
+    width: 200px; /* 고정된 너비 */
+    height: 200px; /* 고정된 높이 */
+    background: #000000; /* 기본 배경 색 */
+    border-radius: 50%;
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 서클을 중앙에 정렬 */
+    z-index: 0; /* z-index 조정: 다른 요소들에 가려지지 않도록 */
+    transition: background-color 0.3s ease; /* 색상 전환 애니메이션 */
+}
+
+/* 마우스를 올렸을 때 색상 변경 */
+.v4_slide:hover .circle_background {
+    background-color: #019fe8;
+}
+
+.character_img_text {
+    text-align: center;
+    position: relative; /* 서클 위에 텍스트 배치 */
+    z-index: 1; /* 텍스트는 서클 위에 표시 */
+    font-weight: 400;
+    bottom: 25px;
+}
+
+.swiper-slide-active img {
+    transform: scale(2);
+}
+
+/*캐릭터 크기 변경되니 건들지 말 것.*/
+.character_img_text img {
+    max-width: 200px; /* 이미지의 최대 너비를 설정하여 크기 제한 */
+    height: auto; /* 비율 유지 */
+}
+
+.character_img_text p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+/*캐릭터 텍스트*/
+.v4_character_texttab{
+    padding: 60px;
+}
+
+.character_content_tab.active {
+    display: block;
+    line-height: 1.7;
+}
+
+.character_content_tab {
+    display: none; /* 기본적으로 모든 탭을 숨깁니다 */
+}
+
+.character_content_tab.active {
+    display: block; /* 활성화된 탭만 표시합니다 */
+}
+
+.content_title {
+    margin-bottom: 5.729166666666667vw;
+    display: flex;
+    align-items: center; /* 내용들이 위쪽을 기준으로 정렬되도록 설정 */
+}
+
+.inner_container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.content_title div {
+    flex: 1; /* 각각의 div가 같은 비율로 공간을 차지하도록 설정 */
+}
+
+.content_title div:nth-child(1) {
+    width: 32.8%;
+}
+
+.content_title div:nth-child(2) {
+    width: 67.2%;
+}
+
+.content_title div h2 {
+    font-size: 75px;
+    color: #fff;
+    margin-bottom: 40px;
+    line-height: 1;
+}
+
+.content_title div h2 span {
+    font-size: 24px;
+    color: #019fe8;
+    font-family: 'NEXON Lv2 Gothic Light';
+    margin-left: 24px;
+    font-weight: 300;
+}
+
+.content_title div p.border_left {
+    font-size: 19px;
+    font-family: 'NEXON Lv2 Gothic Light';
+    padding-left: 28px; /* 왼쪽으로 더 가까이 오도록 조정 */
+    border-left: 1px solid #fff;
+    line-height: 1.6;
+    margin-left: -260px; /* 추가적인 조정이 필요하다면 margin-left 사용 */
+}
+
+.content_mid_title h2 {
+    font-size: 44px;
+    color: #fff;
+    font-family: 'NEXON Lv2 Gothic Light';
+    margin-bottom: 65px;
+    font-weight: 400;
+}
+
+.content_mid_title p {
+    font-size: 19px;
+    color: #fff;
+    opacity: 0.5;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/*유튜브 영상*/
+.video-container {
+    display: flex;
+    justify-content: center; /* 가로로 가운데 정렬 */
+    margin-bottom: 8vw;
+}
+
+/*이미지 슬라이더*/
+.bottom_slider {
+    position: relative;
+    width: 700px; /* 슬라이더의 너비를 고정 값으로 설정 */
+    height: 400px; /* 높이는 원하는 대로 설정 */
+    overflow: visible; /* 버튼이 이미지 밖으로 나와도 잘리지 않게 설정 */
+    margin: 0 auto 5vw auto; /* 중앙 정렬 */
+}
+
+.swiper-wrapper2 {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.b_slide {
+    display: none; /* 처음에는 모든 슬라이드를 숨깁니다 */
+}
+
+.b_slide img {
+    width: 100%; /* 너비를 슬라이더에 맞게 설정 */
+    height: 100%; /* 높이를 슬라이더에 맞게 설정 */
+    object-fit: contain; /* 이미지의 비율을 유지하면서 크기에 맞게 표시 */
+}
+
+.swiper-slide-active img {
+    transform: none; /* 확대를 없애고 원래 크기 유지 */
+}
+
+/* 버튼 스타일 */
+/* Next 버튼 */
+.swiper-button-next.b_swiper_next {
+    background: url(img/b_next.png) no-repeat center;
+    background-size: contain;
+    width: 57px;
+    height: 57px;
+    position: absolute;
+    top: 50%; /* 슬라이더의 중앙에 배치 */
+    right: -6%; /* 오른쪽 끝에서 10% 위치 */
+    transform: translateY(-50%); /* 정확히 중앙에 배치 */
+    z-index: 20; /* 버튼이 이미지 위에 표시되도록 */
+    cursor: pointer; /* 마우스를 올리면 손 모양으로 변경 */
+}
+
+/* Prev 버튼 */
+.swiper-button-prev.b_swiper_prev {
+    background: url(img/b_prev.png) no-repeat center;
+    background-size: contain;
+    width: 57px;
+    height: 57px;
+    position: absolute;
+    top: 50%; /* 슬라이더의 중앙에 배치 */
+    left: -6%; /* 왼쪽 끝에서 10% 위치 */
+    transform: translateY(-50%); /* 정확히 중앙에 배치 */
+    z-index: 20; /* 버튼이 이미지 위에 표시되도록 */
+    cursor: pointer; /* 마우스를 올리면 손 모양으로 변경 */
+}
+
+/* 비활성화된 버튼 스타일 */
+.swiper-button-disabled {
+    opacity: 0.5;
+    pointer-events: none; /* 클릭 불가 */
+}
+
+/*다운로드 & 사이트 링크*/
+.bottom-side {
+    display: flex;
+    padding: 0 80px;
+    gap: 30px; /* 원하는 간격으로 조정 */
+    margin-bottom: 8vw;
+}
+
+.bottom-side h3{
+    color: #fff;
+    font-size: 27px;
+    font-weight: 400;
+}
+
+.bottom-side img{
+    width: 150px;
+    margin-top: 10px;
+}
+
+.footer{
+    background: #f3f3f3;
+    margin: 0 auto;
+}
+
+.footer_top {
+    padding: 3.2vw 0;
+}
+
+.footer_container{
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+
+.footer_top .left {
+    width: 40%;
+    margin-left: 70px;
+}
+
+.left img{
+    margin-bottom: 1vw;
+}
+
+.info_txt{
+    color: #999;
+    font-size: 0.9vw;
+    line-height: 1.6em;
+    margin-bottom: 15px;
+}
+
+.footer_top .right {
+    width: 60%;
+    margin-left: 9vw;
+}
+
+.col.right .footer_menu {
+    display: flex; /* 가로 정렬 */
+    flex-wrap: wrap; /* 여러 줄로 나열되도록 설정 */
+    gap: 4vw; /* 메뉴 간 간격 조정 */
+    list-style: none; /* 기본 리스트 스타일 제거 */
+    padding: 0;
+    margin: 0;
+}
+
+/* 모든 메뉴 항목과 하위 항목을 표시 */
+.col.right ul {
+    list-style: none; /* 구분점 없애기 */
+    padding: 0;
+    margin: 0;
+}
+
+.col.right > ul > li {
+    display: inline-block;
+}
+
+.col.right ul ul li {
+    margin-top: 9px;
+}
+
+/* 주 메뉴 스타일 */
+.footer_menu > li > a {
+    font-size: 16px; /* 주 메뉴 글씨 크기 */
+    color: #333; /* 주 메뉴 글씨 색 */
+}
+
+/* 하위 메뉴 스타일 */
+.col.right ul ul {
+    display: block;
+    font-size: 15px;
+    margin-top: 20px; /* 주 메뉴와 하위 메뉴 간의 간격 */
+}
+
+.col.right ul ul li a {
+    color: #999; /* 하위 메뉴 링크의 글씨 색상 */
+}
+
+#ft_wr {
+    min-height: 60px; /* 최소 높이 설정 */
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    position: relative;
+    background-color: #f3f3f3; /* 원하는 배경색 */
+}
+
+#ft_wr::before {
+    content: "";
+    display: block;
+    background-color: #ddd; /* 구분선 색상 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2; /* 배경색 위로 구분선이 오도록 설정 */
+}
+
+.ft_inner_container {
+    width: 100%;
+    padding: 0 85px;
+    display: flex; /* Flexbox를 사용하여 세로 가운데 정렬 */
+    align-items: center; /* 세로 가운데 정렬 */
+    justify-content: space-between; /* 좌우로 배치 */
+}
+
+#ft_wr .copyright {
+    font-size: 14px;
+    color: #999;
+}
+
+#ft_wr .copyright p {
+    font-size: 14px;
+    color: #999;
+}
+
+.footer_family_site {
+    position: relative; /* 오른쪽 정렬을 위해 절대 위치 제거 */
+}
+
+.dropup {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    color: #999;
+    font-size: 14px;
+    border: none;
+    width: 220px;
+    height: 30px;
+    right: 180px;
+    text-align: left;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropbtn::after {
+    content: "▲";
+    font-size: 10px;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+/* 드롭다운 콘텐츠 기본 상태 */
+.dropup-content {
+    display: none;  /* 기본적으로 표시되지 않음 */
+    position: absolute;
+    bottom: 30px;  /* 버튼과 메뉴 간의 간격 조정 */
+    right: 170px;
+    background-color: #f1f1f1;
+    min-width: 220px;
+    font-size: 12px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 3;
+}
+
+/* 드롭다운 열림 유지 */
+.dropup:hover .dropup-content {
+    display: block;
+}
+
+.dropup-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s;
+}
+
+/* 하위 메뉴 호버 색상 변경 */
+.dropup-content a:hover {
+    background-color: #ddd;
+}
+
+/*top버튼*/
+#top_btn {
+    position: fixed;
+    border-radius: 50px;
+    width: 59px;
+    height: 59px;
+    background: #191b1d;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    bottom: 100px;
+    right: 30px;
+    font-size: 16px;
+    font-weight: 100;
+    cursor: pointer; /* 마우스를 올리면 손 모양으로 변경 */
+}
+
+#top_btn:hover {
+    background-color: #007aff;
+}
