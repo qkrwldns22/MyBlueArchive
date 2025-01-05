@@ -536,9 +536,11 @@ img {
 /*다운로드 & 사이트 링크*/
 .bottom-side {
     display: flex;
-    padding: 0 80px;
-    gap: 30px; /* 원하는 간격으로 조정 */
+    justify-content: center; /* 요소들을 중앙으로 정렬 */
+    gap: 30px; /* 원하는 간격 유지 */
     margin-bottom: 8vw;
+    padding: 0;
+    text-align: center; /* 내부 텍스트도 중앙 정렬 */
 }
 
 .bottom-side h3{
@@ -552,9 +554,13 @@ img {
     margin-top: 10px;
 }
 
+
+/*footer는 여기부터*/
 .footer{
     background: #f3f3f3;
     margin: 0 auto;
+    padding: 0 20px; /* 양쪽 여백 설정 */
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
 }
 
 .footer_top {
@@ -563,13 +569,16 @@ img {
 
 .footer_container{
     width: 100%;
-    padding: 0 20px;
+    max-width: 1200px; /* footer의 최대 너비와 동일 */
+    margin: 0 auto; /* 가운데 정렬 */
+    padding: 0 20px; /* 양쪽 여백 설정 */
     display: flex;
+    justify-content: space-between; /* 좌우로 균등하게 배치 */
 }
 
 .footer_top .left {
     width: 40%;
-    margin-left: 70px;
+    margin-left: 0;
 }
 
 .left img{
@@ -578,14 +587,14 @@ img {
 
 .info_txt{
     color: #999;
-    font-size: 0.9vw;
+    font-size: 0.85vw;
     line-height: 1.6em;
     margin-bottom: 15px;
 }
 
 .footer_top .right {
     width: 60%;
-    margin-left: 9vw;
+    margin-left: 0;
 }
 
 .col.right .footer_menu {
@@ -650,10 +659,11 @@ img {
 
 .ft_inner_container {
     width: 100%;
-    padding: 0 85px;
-    display: flex; /* Flexbox를 사용하여 세로 가운데 정렬 */
+    max-width: 1200px; /* 최대 너비 설정 */
+    margin: 0 auto;
+    display: flex;
     align-items: center; /* 세로 가운데 정렬 */
-    justify-content: space-between; /* 좌우로 배치 */
+    justify-content: space-between; /* 좌우 간격 균등 배치 */
 }
 
 #ft_wr .copyright {
