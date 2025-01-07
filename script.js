@@ -1,7 +1,7 @@
 // 모든 슬라이드를 가져옴
 const slides = document.querySelectorAll('.v4_slide');
 
-//nav 메뉴
+// nav 메뉴
 document.addEventListener("DOMContentLoaded", () => {
     const gnbWrapper = document.querySelector(".gnb_wrapper");
     const fulldownBg = document.querySelector(".fulldown_bg");
@@ -82,47 +82,36 @@ document.addEventListener('DOMContentLoaded', function () {
   updateContent('0'); // 처음엔 index 0의 내용을 보이게 설정
 });
 
-// 이미지 슬라이더
-let currentIndex = 0;  // 슬라이드 인덱스
-const sliderItems = document.querySelectorAll('.b_slide'); // 모든 슬라이드 항목
-const prevButton = document.querySelector('.b_swiper_prev'); // prev 버튼
-const nextButton = document.querySelector('.b_swiper_next'); // next 버튼
-
-// 슬라이드를 업데이트하는 함수
-function updateSlider() {
-    // 모든 슬라이드를 숨기고, 현재 슬라이드만 보이도록 설정
-    sliderItems.forEach(slide => slide.style.display = 'none');
-    sliderItems[currentIndex].style.display = 'block'; // 현재 슬라이드만 보이도록 설정
-
-    // 버튼 활성화/비활성화 상태 업데이트
-    if (currentIndex === 0) {
-        prevButton.classList.add('swiper-button-disabled'); // 첫 번째 슬라이드에서 prev 버튼 비활성화
-    } else {
-        prevButton.classList.remove('swiper-button-disabled');
-    }
-
-    if (currentIndex === sliderItems.length - 1) {
-        nextButton.classList.add('swiper-button-disabled'); // 마지막 슬라이드에서 next 버튼 비활성화
-    } else {
-        nextButton.classList.remove('swiper-button-disabled');
-    }
-}
-
-// prev 버튼 클릭 시
-prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--; // 이전 슬라이드로 이동
-        updateSlider();
-    }
+$('.slick-wrapper').slick({
+    slidesToShow: 5,      // 한 번에 보이는 슬라이드 수
+    slidesToScroll: 1,    // 슬라이드 이동 개수
+    autoplay: false,
+    arrows: true,         // 화살표 표시
+    centerMode: true,     // 중앙 슬라이드 강조
+    focusOnSelect: true,  // 클릭 시 중앙으로 이동
+    infinite: false,      // 무한 반복 사용 안 함
+    variableWidth: true,  // 슬라이드 너비 고정
+    responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                centerPadding: '10%' // 모바일에서 여백 축소
+            }
+        },
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 2, // 태블릿에서 2개
+                slidesToScroll: 1,
+                centerMode: true,
+                centerPadding: '15%' // 태블릿에서 여백 설정
+            }
+        }
+    ]
 });
 
-// next 버튼 클릭 시
-nextButton.addEventListener('click', () => {
-    if (currentIndex < sliderItems.length - 1) {
-        currentIndex++; // 다음 슬라이드로 이동
-        updateSlider();
-    }
-});
 
 // 초기 상태 업데이트
 updateSlider();
