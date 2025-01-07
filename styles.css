@@ -815,8 +815,8 @@ img {
     }
 }
 
-@media (min-width: 1340px) {
+@media (min-width: 1580px) {
     #gnb .fulldown_bg .ninner {
-        max-width: 800px; /* 화면이 크면 더 넓게 설정 */
+        max-width: 730px; /* 화면이 크면 더 넓게 설정 */
     }
 }
