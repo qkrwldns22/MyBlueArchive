@@ -513,7 +513,7 @@ img {
 .bottom-side {
     display: flex;
     justify-content: center; /* 요소들을 중앙으로 정렬 */
-    gap: 30px; /* 원하는 간격 유지 */
+    gap: 50px; /* 원하는 간격 유지 */
     margin-bottom: 25px;
     padding: 0;
     text-align: center; /* 내부 텍스트도 중앙 정렬 */
@@ -545,7 +545,7 @@ img {
 
 .footer_container{
     width: 100%;
-    max-width: 1280px;
+    max-width: 1340px;
     margin: 0 auto;
     position: relative;
     display: flex;
@@ -812,5 +812,11 @@ img {
 
         border-left: none; /*위에 설정되 있기에 없앰*/
         border-top: 1px solid #ccc;
+    }
+}
+
+@media (min-width: 1340px) {
+    #gnb .fulldown_bg .ninner {
+        max-width: 800px; /* 화면이 크면 더 넓게 설정 */
     }
 }
