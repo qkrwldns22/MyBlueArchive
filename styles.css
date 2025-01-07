@@ -92,12 +92,15 @@ img {
     content: none; /* 마지막 항목에서만 가상 요소 제거 */
 }
 
-#gnb .gnb_wrapper{
-    max-width: 1280px;
+/* 기본 메뉴 레이아웃 */
+#gnb .gnb_wrapper {
+    max-width: 100%; /* 메뉴가 화면을 벗어나지 않도록 설정 */
     margin: 0 auto;
     position: relative;
     height: 70px;
     transition: all 0.35s;
+    display: flex;
+    justify-content: space-between;
 }
 
 #gnb .custom_menu{
@@ -721,6 +724,79 @@ img {
 
 #top_btn:hover {
     background-color: #007aff;
+}
+
+/* 미디어 쿼리: 화면 크기가 작을 때 */
+@media screen and (max-width: 768px) {
+    #gnb .gnb_wrapper {
+        flex-direction: column;  /* 메뉴 항목들을 세로로 나열 */
+        align-items: flex-start; /* 왼쪽 정렬 */
+        padding: 10px 0;
+    }
+
+    /* 메뉴 항목 간 간격을 줄여서 좁은 화면에 맞게 조정 */
+    #gnb .custom_menu > li {
+        margin: 0 10px;
+        padding: 5px 0;
+    }
+
+    /* 언어 선택 메뉴 스타일 수정 */
+    .header_language_select {
+        padding: 8px 12px;
+        position: relative;
+        top: 0;
+        left: 630px;
+        background: #303234;
+        margin-bottom: 10px; /* 아래쪽 여백 추가 */
+    }
+
+    /* 블로그 아이콘 및 로고도 모바일에서 잘 보이도록 조정 */
+    .header_main_logo, .header_blog_icon {
+        position: relative;
+        left: 0;
+        right: 0;
+        top: 0;
+    }
+
+    @media screen and (max-width: 768px) {
+        #gnb .fulldown_bg {
+            top: 200px; /* 더 작은 화면에서 위치를 더 아래로 내림 */
+        }
+    }
+
+    /* 드롭다운 메뉴가 화면에 맞게 표시되도록 */
+    .fulldown_bg .ninner {
+        max-width: 100%;
+        margin: 0;
+        padding-top: 10px;
+    }
+
+    /* 드롭다운 메뉴가 열린 상태 */
+    #gnb .gnb_wrapper:hover ~ .fulldown_bg {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    /* 메뉴가 화면을 넘지 않도록 최대 너비 설정 */
+    .fulldown_bg {
+        width: 100%;
+        max-width: 100%; /* 화면에 맞게 확장 */
+    }
+
+    /* 드롭다운 메뉴 위치 등 조정 */
+    .ninner ul li a {
+        font-size: 15px;
+        color: #666;
+        display: inline-block;
+        line-height: 35px;
+        margin: 0 2px 0 0;
+    }
+}
+
+/* 드롭다운 메뉴 활성화 상태 */
+#gnb .fulldown_bg.active {
+    height: 250px;
+    opacity: 1;
 }
 
 /*캐릭터 설명창 vw가 작아질떄 모습 설정*/
